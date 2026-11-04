@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -9,14 +10,14 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                echo 'Getting source code from GitHub'
+                echo 'Fetching source code from GitHub'
                 checkout scm
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                echo 'Installing project dependencies'
+                echo 'Installing dependencies'
                 sh 'npm install'
             }
         }
@@ -28,20 +29,37 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                echo 'Application build stage completed'
+                echo 'Building TaskFlow Docker image'
+                sh 'docker build -t taskflow-dashboard:${BUILD_NUMBER} .'
+            }
+        }
+
+        stage('Deploy Container') {
+            steps {
+                echo 'Deploying TaskFlow container'
+
+                sh '''
+                    docker rm -f taskflow-container || true
+
+                    docker run -d \
+                        --name taskflow-container \
+                        -p 8082:80 \
+                        taskflow-dashboard:${BUILD_NUMBER}
+                '''
             }
         }
     }
 
     post {
         success {
-            echo 'TaskFlow pipeline completed successfully!'
+            echo 'TaskFlow CI/CD pipeline completed successfully!'
+            echo 'Application URL: http://localhost:8082'
         }
 
         failure {
-            echo 'Pipeline failed. Check the console output.'
+            echo 'Pipeline failed. Check Console Output.'
         }
     }
 }
