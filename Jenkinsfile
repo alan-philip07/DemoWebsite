@@ -17,7 +17,7 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                echo 'Installing dependencies'
+                echo 'Installing project dependencies'
                 sh 'npm install'
             }
         }
@@ -38,7 +38,7 @@ pipeline {
 
         stage('Deploy Container') {
             steps {
-                echo 'Deploying TaskFlow container'
+                echo 'Deploying TaskFlow application'
 
                 sh '''
                     docker rm -f taskflow-container || true
