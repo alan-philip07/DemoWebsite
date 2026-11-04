@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow | Project Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="logo">✦ TaskFlow</div>
+
+        <p class="menu-title">WORKSPACE</p>
+        <a class="active" href="#">▦ Dashboard</a>
+        <a href="#">▣ My Tasks</a>
+        <a href="#">◷ Activity</a>
+        <a href="#">⚙ Settings</a>
+
+        <div class="profile">
+            <div class="avatar">JD</div>
+            <div>
+                <strong>John Doe</strong>
+                <small>Administrator</small>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header>
+            <div>
+                <p class="greeting">MONDAY, NOVEMBER 04</p>
+                <h1>Dashboard</h1>
+                <p class="subtitle">Welcome back! Here's what's happening today.</p>
+            </div>
+            <button class="notification">🔔</button>
+        </header>
+
+        <section class="stats">
+            <div class="stat-card">
+                <span>Total Projects</span>
+                <h2>12</h2>
+                <small>↑ 2 this month</small>
+            </div>
+
+            <div class="stat-card">
+                <span>Completed Tasks</span>
+                <h2 id="completedCount">08</h2>
+                <small>Great progress!</small>
+            </div>
+
+            <div class="stat-card">
+                <span>Pending Tasks</span>
+                <h2 id="pendingCount">05</h2>
+                <small>Tasks remaining</small>
+            </div>
+
+            <div class="stat-card">
+                <span>Team Members</span>
+                <h2>06</h2>
+                <small>Working together</small>
+            </div>
+        </section>
+
+        <section class="content-grid">
+            <div class="panel tasks-panel">
+                <div class="panel-heading">
+                    <div>
+                        <h2>My Tasks</h2>
+                        <p>Manage your daily activities</p>
+                    </div>
+                    <button class="add-button" id="addTaskButton">+ Add Task</button>
+                </div>
+
+                <div class="task-input" id="taskInputArea">
+                    <input type="text" id="taskInput" placeholder="Enter a new task...">
+                    <button id="saveTaskButton">Add</button>
+                </div>
+
+                <div class="filters">
+                    <button class="filter active-filter" data-filter="all">All</button>
+                    <button class="filter" data-filter="pending">Pending</button>
+                    <button class="filter" data-filter="completed">Completed</button>
+                </div>
+
+                <div id="taskList" class="task-list">
+                    <div class="task-item">
+                        <input type="checkbox" class="task-check">
+                        <span>Complete project documentation</span>
+                        <span class="tag pending-tag">Pending</span>
+                    </div>
+
+                    <div class="task-item">
+                        <input type="checkbox" class="task-check">
+                        <span>Review application design</span>
+                        <span class="tag pending-tag">Pending</span>
+                    </div>
+
+                    <div class="task-item completed-task">
+                        <input type="checkbox" class="task-check" checked>
+                        <span>Setup development environment</span>
+                        <span class="tag completed-tag">Completed</span>
+                    </div>
+
+                    <div class="task-item completed-task">
+                        <input type="checkbox" class="task-check" checked>
+                        <span>Create project repository</span>
+                        <span class="tag completed-tag">Completed</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel progress-panel">
+                <h2>Project Progress</h2>
+                <p>Overall completion</p>
+
+                <div class="progress-circle">
+                    <div>
+                        <strong>75%</strong>
+                        <small>Completed</small>
+                    </div>
+                </div>
+
+                <div class="progress-info">
+                    <span>Completed</span>
+                    <strong>75%</strong>
+                </div>
+                <div class="progress-bar">
+                    <div></div>
+                </div>
+
+                <div class="progress-info">
+                    <span>Remaining</span>
+                    <strong>25%</strong>
+                </div>
+                <div class="progress-bar remaining">
+                    <div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel activity-panel">
+            <h2>Recent Activity</h2>
+            <div class="activity">
+                <span class="activity-icon purple">✓</span>
+                <div>
+                    <strong>Project repository created</strong>
+                    <small>GitHub repository initialized</small>
+                </div>
+                <time>10:30 AM</time>
+            </div>
+
+            <div class="activity">
+                <span class="activity-icon green">↗</span>
+                <div>
+                    <strong>Development environment configured</strong>
+                    <small>Initial setup completed</small>
+                </div>
+                <time>Yesterday</time>
+            </div>
+
+            <div class="activity">
+                <span class="activity-icon orange">+</span>
+                <div>
+                    <strong>New project started</strong>
+                    <small>TaskFlow workspace created</small>
+                </div>
+                <time>Nov 01</time>
+            </div>
+        </section>
+
+        <footer>
+            TaskFlow Dashboard © 2026 | Built for CI/CD Demonstration
+        </footer>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

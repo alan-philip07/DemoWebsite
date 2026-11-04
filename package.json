@@ -1,0 +1,9 @@
+{
+    "name": "taskflow-dashboard",
+    "version": "1.0.0",
+    "description": "Task management dashboard for Jenkins CI/CD demonstration",
+    "main": "app.js",
+    "scripts": {
+        "test": "node --test"
+    }
+}
