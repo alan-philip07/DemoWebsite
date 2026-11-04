@@ -7,9 +7,11 @@ const pendingCount = document.getElementById("pendingCount");
 let currentFilter = "all";
 
 function addTask(name) {
-    if (!name || !name.trim()) {
+    if (!isValidTaskName(name)) {
         return false;
     }
+
+    // Keep the rest of your existing addTask function unchanged.
 
     const task = document.createElement("div");
     task.className = "task-item";
